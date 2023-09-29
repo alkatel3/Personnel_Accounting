@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace DataAccessLayer.Repository
@@ -35,9 +36,11 @@ namespace DataAccessLayer.Repository
 
         public virtual IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>>? filter = null)
         {
-            IQueryable<TEntity> quety = dbSet;
-            quety = quety.Where(filter);
-            return quety.ToList();
+            IQueryable<TEntity> query = dbSet;
+            if (filter != null)
+                query = query.Where(filter);
+
+            return query.ToList();
         }
 
         public virtual void Remove(TEntity entity)
@@ -55,5 +58,4 @@ namespace DataAccessLayer.Repository
             dbSet.Update(item);
         }
     }
-}
 }

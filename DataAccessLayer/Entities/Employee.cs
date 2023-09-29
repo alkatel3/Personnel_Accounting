@@ -32,7 +32,7 @@ namespace DataAccessLayer.Entities
         [DisplayName("Підпорядкований")]
         public Employee? Supervisor { get; set; }
         public int DepartmentId { get; set; }
-        [ForeignKey("CategoryId")]
+        [ForeignKey("DepartmentId")]
         public Department? Department { get; set; }
 
     }

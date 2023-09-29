@@ -1,12 +1,16 @@
-﻿using System;
+﻿using DataAccessLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.Repository.Interfaces
+namespace DataAccessLayer.Repository
 {
-    internal class EmployeeRepository
+    internal class EmployeeRepository : Repository<int, Employee>
     {
+        public EmployeeRepository(ApplicationDbContext context) : base(context)
+        {
+        }
     }
 }

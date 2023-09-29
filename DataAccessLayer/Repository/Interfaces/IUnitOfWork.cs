@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repository.Interfaces
 {
-    internal interface IUnitOfWork
+    public interface IUnitOfWork
     {
         IRepository<int, Employee> Employees { get; }
         IRepository<int, Department> Departments { get; }

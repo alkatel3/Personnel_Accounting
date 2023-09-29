@@ -1,8 +1,47 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model List<Employee>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1>Employee List</h1>
+﻿<div class="card shadow border-0 style="margin-bottom: 60px">
+    <div class="card-header bg-secondary bg-gradient m-lg-0 py-3">
+        <div class="rox">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">User List</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4 ">
+        <table id="tblData" class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Birth Year</th>
+                    <th>Education</th>
+                    <th>Position</th>
+                    <th>Salaty</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model)
+                {
+                    <tr>
+                        <td>@employee.LastName</td>
+                        <td>@employee.FirstName</td>
+                        <td>@employee.MiddleName</td>
+                        <td>@employee.BirthYear</td>
+                        <td>@employee.Education</td>
+                        <td>@employee.Position</td>
+                        <td>@employee.Salaty</td>
+                        <td></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
+@*
+@section Scripts{
+    <script src="~/js/employee.js"></script>
+}*@
