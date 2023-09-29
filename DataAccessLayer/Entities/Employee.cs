@@ -13,10 +13,10 @@ namespace DataAccessLayer.Entities
     {
         [Required]
         [DisplayName("Прізвище")]
-        public string LastName { get; set; }
+        public string LastName { get; set; } = null!;
         [Required]
         [DisplayName("Ім'я")]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = null!;
         [DisplayName("По-батькові")]
         public string? MiddleName { get; set; }
         [DisplayName("Рік народження")]
@@ -25,7 +25,7 @@ namespace DataAccessLayer.Entities
         public string? Education { get; set; }
         [Required]
         [DisplayName("Посада")]
-        public string Position { get; set; }
+        public string Position { get; set; } = null!;
         [Required]
         [DisplayName("Оклад")]
         public decimal Salaty { get; set; }
