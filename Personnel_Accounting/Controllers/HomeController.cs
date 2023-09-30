@@ -1,6 +1,5 @@
 ﻿using DataAccessLayer.Repository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace Personnel_Accounting.Controllers
 {
@@ -15,7 +14,7 @@ namespace Personnel_Accounting.Controllers
 
         public IActionResult Index()
         {
-            var Employee = _unitOfWork.Employees.GetAll().ToList();
+            var Employee = _unitOfWork.Employees.GetAll(includeProperties: "Department,Supervisor").ToList();
             return View(Employee);
         }
 
