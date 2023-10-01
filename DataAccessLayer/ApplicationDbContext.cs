@@ -49,7 +49,8 @@ namespace DataAccessLayer
                     Education = "ЛП",
                     Position = "Middle",
                     Salaty = 1200,
-                    DepartmentId = 2
+                    DepartmentId = 2,
+                    SupervisorId = 1
                 },
                 new Employee
                 {
@@ -60,7 +61,8 @@ namespace DataAccessLayer
                     Education = "ЛНУ",
                     Position = "Middle",
                     Salaty = 1300,
-                    DepartmentId = 3
+                    DepartmentId = 3,
+                    SupervisorId = 1
                 },
                 new Employee
                 {
@@ -69,7 +71,8 @@ namespace DataAccessLayer
                     FirstName = "Евген",
                     Position = "Laad",
                     Salaty = 1300,
-                    DepartmentId = 1
+                    DepartmentId = 1,
+                    SupervisorId = 1
                 }
 );
         }

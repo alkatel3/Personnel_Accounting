@@ -49,7 +49,13 @@
                         <td>@employee.Salaty</td>
                         <td>@employee.Department?.Name</td>
                         <td>@employee.Supervisor?.Id</td>
-                        <td></td>
+                        <td>
+                            <div class="w-75 btn-group" role="group">
+                                <a asp-controller="Home" asp-action="Upsert" asp-route-id="@employee.Id" class="btn btn-primary mx-2">
+                                    <i class="bi bi-pencil-square"></i> Edit
+                                </a>
+                            </div>
+                        </td>
                     </tr>
                 }
             </tbody>

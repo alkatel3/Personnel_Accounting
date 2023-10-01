@@ -24,6 +24,8 @@ namespace Models
         [Required]
         [DisplayName("Оклад")]
         public decimal Salaty { get; set; }
+        public int? SupervisorId { get; set; }
+        [ForeignKey("SupervisorId")]
         [DisplayName("Підпорядкований")]
         public Employee? Supervisor { get; set; }
         public int DepartmentId { get; set; }

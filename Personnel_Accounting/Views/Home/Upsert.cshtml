@@ -18,25 +18,24 @@
                         <div class="form-floating py-3 col-12">
                             <input asp-for="Employee.LastName" class="form-control border-0 shadow" />
                             <label asp-for="Employee.LastName" class="ms-2 text-muted"></label>
+                            <span asp-validation-for="Employee.LastName" class="text-danger"></span>
                         </div>
                         <div class="form-floating py-3 col-12">
-                            <input asp-for="Employee.LastName" class="form-control border-0 shadow" />
+                            <input asp-for="Employee.FirstName" class="form-control border-0 shadow" />
                             <label asp-for="Employee.FirstName" class="ms-2 text-muted"></label>
+                            <span asp-validation-for="Employee.FirstName" class="text-danger"></span>
                         </div>
                         <div class="form-floating py-3 col-12">
                             <input asp-for="Employee.MiddleName" class="form-control border-0 shadow" />
                             <label asp-for="Employee.MiddleName" class="ms-2 text-muted"></label>
-                            <span asp-validation-for="Employee.MiddleName" class="text-danger"></span>
                         </div>
                         <div class="form-floating py-3 col-12">
                             <input asp-for="Employee.BirthYear" class="form-control border-0 shadow" />
                             <label asp-for="Employee.BirthYear" class="ms-2 text-muted"></label>
-                            <span asp-validation-for="Employee.BirthYear" class="text-danger"></span>
                         </div>
                         <div class="form-floating py-3 col-12">
                             <input asp-for="Employee.Education" class="form-control border-0 shadow" />
                             <label asp-for="Employee.Education" class="ms-2 text-muted"></label>
-                            <span asp-validation-for="Employee.Education" class="text-danger"></span>
                         </div>
                         <div class="form-floating py-3 col-12">
                             <input asp-for="Employee.Position" class="form-control border-0 shadow" />
@@ -54,6 +53,12 @@
                             </select>
                             <label asp-for="Employee.DepartmentId" class="ms-2 text-muted"></label>
                             <span asp-validation-for="Employee.DepartmentId" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-3 col-12">
+                            <select asp-for="Employee.SupervisorId" asp-items="@Model.EployeeList" class="form-select border-0 shadow">
+                                <option disabled selected>--Select Supervisor--</option>
+                            </select>
+                            <label asp-for="Employee.SupervisorId" class="ms-2 text-muted"></label>
                         </div>
                         <div class="row pt-2">
                             <div class="col-6 col-md-3">
@@ -93,7 +98,6 @@
             tinycomments_author: 'Author name',
             mergetags_list: [
                 { value: 'First.Name', title: 'First Name' },
-                { value: 'Email', title: 'Email' },
             ]
         });
     </script>
