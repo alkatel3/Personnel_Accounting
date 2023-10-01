@@ -122,7 +122,7 @@ namespace Personnel_Accounting.Controllers
 
             _unitOfWork.Employees.Remove(employeeDb);
             _unitOfWork.Save();
-            TempData["success"] = "Category deleted successfully";
+            TempData["success"] = "Employee deleted successfully";
             return RedirectToAction("Index");
         }
     }
