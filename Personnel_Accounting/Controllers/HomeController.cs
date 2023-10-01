@@ -94,15 +94,36 @@ namespace Personnel_Accounting.Controllers
             //}
         }
 
-        public IActionResult Privacy()
+        public IActionResult Delete(int? id)
         {
-            return View();
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            Employee? employeeDb = _unitOfWork.Employees.Get(c => c.Id == id);
+            if (employeeDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(employeeDb);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeletePost(int? id)
         {
-            return View();
+            Employee? employeeDb = _unitOfWork.Employees.Get(c => c.Id == id);
+
+            if (employeeDb == null)
+            {
+                return NotFound();
+            }
+
+            _unitOfWork.Employees.Remove(employeeDb);
+            _unitOfWork.Save();
+            TempData["success"] = "Category deleted successfully";
+            return RedirectToAction("Index");
         }
     }
 }
