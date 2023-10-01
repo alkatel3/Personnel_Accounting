@@ -19,6 +19,33 @@
                 </a>
             </div>
         </div>
+        <div class="row pb-3">
+            <div class="col-6 d-inline">
+            @*Ввід для пошуку*@
+                <form asp-controller="Home" asp-action="Index" method="get" class="form-inline">
+                    <div class="form-group mx-2">
+                        <label for="birthYear">Birth Year:</label>
+                        <input type="number" class="form-control" name="birthYear" id="birthYear">
+                    </div>
+                    <div class="form-group mx-2">
+                        <label for="education">Education:</label>
+                        <input type="text" class="form-control" name="education" id="education">
+                    </div>
+                    <div class="form-group mx-2">
+                        <label for="salary">Salary:</label>
+                        <input type="salary" class="form-control" name="salary" id="salary">
+                    </div>
+                    <button type="submit" class="btn btn-primary mx-2">
+                        <i class="bi bi-search"></i> Search
+                    </button>
+                </form>
+            </div>
+@*            <div class="col-6 text-end">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
+                    <i class="bi bi-search"></i> Search
+                </a>
+            </div>*@
+        </div>
         <table id="tblData" class="table table-bordered table-striped" style="width:100%">
             <thead>
                 <tr>

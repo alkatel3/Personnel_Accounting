@@ -15,9 +15,13 @@ namespace Personnel_Accounting.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(uint? birthYear, string? education, decimal? salary)
         {
-            var Employee = _unitOfWork.Employees.GetAll(includeProperties: "Department,Supervisor").ToList();
+            var Employee = _unitOfWork.Employees.GetAll(e => 
+            e.BirthYear==(birthYear ?? e.BirthYear) &&
+            e.Education==(education ?? e.Education) &&
+            e.Salaty==(salary ?? e.Salaty),
+                includeProperties: "Department,Supervisor").ToList();
             return View(Employee);
         }
 
