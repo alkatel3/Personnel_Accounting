@@ -60,8 +60,6 @@ namespace Personnel_Accounting.Controllers
         [HttpPost]
         public IActionResult Upsert(EmployeeVM employeeVM)
         {
-            //if (ModelState.IsValid)
-            //{
                 if (employeeVM.Employee.Id == 0)
                 {
                     _unitOfWork.Employees.Add(employeeVM.Employee);
@@ -75,27 +73,6 @@ namespace Personnel_Accounting.Controllers
 
                 TempData["success"] = "Emloyee created/updated successfully";
                 return RedirectToAction("Index");
-            //}
-            //else
-            //{
-                //employeeVM = new EmployeeVM
-                //{
-                //    DepartmentList = _unitOfWork.Departments
-                //    .GetAll().Select(d => new SelectListItem
-                //    {
-                //        Text = d.Name,
-                //        Value = d.Id.ToString()
-                //    }),
-                //    Employee = new Employee(),
-                //    EployeeList = _unitOfWork.Employees
-                //    .GetAll().Select(e => new SelectListItem
-                //    {
-                //        Text = string.Join(' ', e.LastName, e.FirstName),
-                //        Value = e.Id.ToString()
-                //    }),
-                //};
-            //    return View(employeeVM);
-            //}
         }
 
         public IActionResult Delete(int? id)

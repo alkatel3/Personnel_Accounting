@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Personnel_Accounting
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {

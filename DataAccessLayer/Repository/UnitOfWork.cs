@@ -5,9 +5,9 @@ namespace DataAccessLayer.Repository
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private ApplicationDbContext _context;
-        private IRepository<int, Employee> _employees;
-        private IRepository<int, Department> _departments;
+        private readonly ApplicationDbContext _context;
+        private IRepository<int, Employee> _employees = null!;
+        private IRepository<int, Department> _departments = null!;
 
         public UnitOfWork(ApplicationDbContext context)
         {

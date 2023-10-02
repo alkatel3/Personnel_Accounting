@@ -5,9 +5,9 @@ namespace Models.ViewModel
 {
     public class EmployeeVM
     {
-        public Employee Employee { get; set; }
+        public Employee Employee { get; set; } = null!;
         [ValidateNever]
-        public IEnumerable<SelectListItem> DepartmentList { get; set; }
-        public IEnumerable<SelectListItem> EployeeList { get; set; }
+        public IEnumerable<SelectListItem> DepartmentList { get; set; } = null!;
+        public IEnumerable<SelectListItem> EployeeList { get; set; } = null!;
     }
 }
