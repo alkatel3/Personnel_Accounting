@@ -15,6 +15,7 @@ namespace Models
         [DisplayName("По-батькові")]
         public string? MiddleName { get; set; }
         [DisplayName("Рік народження")]
+        [Range(1900, 2100)]
         public uint? BirthYear { get; set; }
         [DisplayName("Освіта")]
         public string? Education { get; set; }
@@ -23,6 +24,7 @@ namespace Models
         public string Position { get; set; } = null!;
         [Required]
         [DisplayName("Оклад")]
+        [Range(0, (double)Decimal.MaxValue)]
         public decimal Salary { get; set; }
         public int? SupervisorId { get; set; }
         [ForeignKey("SupervisorId")]
