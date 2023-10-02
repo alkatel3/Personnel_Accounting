@@ -88,7 +88,7 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Salaty")
+                    b.Property<decimal>("Salary")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("SupervisorId")
@@ -113,7 +113,7 @@ namespace DataAccessLayer.Migrations
                             LastName = "Янишин",
                             MiddleName = "Володимирович",
                             Position = "Junior",
-                            Salaty = 700m
+                            Salary = 700m
                         },
                         new
                         {
@@ -125,7 +125,7 @@ namespace DataAccessLayer.Migrations
                             LastName = "Пеленський",
                             MiddleName = "Богданович",
                             Position = "Middle",
-                            Salaty = 1200m,
+                            Salary = 1200m,
                             SupervisorId = 1
                         },
                         new
@@ -137,7 +137,7 @@ namespace DataAccessLayer.Migrations
                             FirstName = "Михайло",
                             LastName = "Мисаковець",
                             Position = "Middle",
-                            Salaty = 1300m,
+                            Salary = 1300m,
                             SupervisorId = 1
                         },
                         new
@@ -146,8 +146,8 @@ namespace DataAccessLayer.Migrations
                             DepartmentId = 1,
                             FirstName = "Евген",
                             LastName = "Вовк",
-                            Position = "Laad",
-                            Salaty = 1300m,
+                            Position = "Lead",
+                            Salary = 1300m,
                             SupervisorId = 1
                         });
                 });

@@ -37,19 +37,19 @@ namespace DataAccessLayer.Migrations
                     BirthYear = table.Column<long>(type: "bigint", nullable: true),
                     Education = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Position = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Salaty = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Salary = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     SupervisorId = table.Column<int>(type: "int", nullable: true),
-                    DepartmentId = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: true)
+                    DepartmentId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Employees", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Employees_Departments_CategoryId",
-                        column: x => x.CategoryId,
+                        name: "FK_Employees_Departments_DepartmentId",
+                        column: x => x.DepartmentId,
                         principalTable: "Departments",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Employees_Employees_SupervisorId",
                         column: x => x.SupervisorId,
@@ -67,10 +67,21 @@ namespace DataAccessLayer.Migrations
                     { 3, "Technical Support" }
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Employees_CategoryId",
+            migrationBuilder.InsertData(
                 table: "Employees",
-                column: "CategoryId");
+                columns: new[] { "Id", "BirthYear", "DepartmentId", "Education", "FirstName", "LastName", "MiddleName", "Position", "Salary", "SupervisorId" },
+                values: new object[,]
+                {
+                    { 1, 2002L, 1, "КПІ 121", "Віталій", "Янишин", "Володимирович", "Junior", 700m, null },
+                    { 2, 2002L, 2, "ЛП", "Артур", "Пеленський", "Богданович", "Middle", 1200m, 1 },
+                    { 3, 2002L, 3, "ЛНУ", "Михайло", "Мисаковець", null, "Middle", 1300m, 1 },
+                    { 4, null, 1, null, "Евген", "Вовк", null, "Lead", 1300m, 1 }
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Employees_DepartmentId",
+                table: "Employees",
+                column: "DepartmentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Employees_SupervisorId",

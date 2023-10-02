@@ -23,7 +23,7 @@ namespace Models
         public string Position { get; set; } = null!;
         [Required]
         [DisplayName("Оклад")]
-        public decimal Salaty { get; set; }
+        public decimal Salary { get; set; }
         public int? SupervisorId { get; set; }
         [ForeignKey("SupervisorId")]
         [DisplayName("Підпорядкований")]

@@ -20,7 +20,7 @@ namespace Personnel_Accounting.Controllers
             var Employee = _unitOfWork.Employees.GetAll(e => 
             e.BirthYear==(birthYear ?? e.BirthYear) &&
             e.Education==(education ?? e.Education) &&
-            e.Salaty==(salary ?? e.Salaty),
+            e.Salary == (salary ?? e.Salary),
                 includeProperties: "Department,Supervisor").ToList();
             return View(Employee);
         }

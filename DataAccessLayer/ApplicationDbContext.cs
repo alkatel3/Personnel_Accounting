@@ -33,7 +33,7 @@ namespace DataAccessLayer
                     BirthYear = 2002,
                     Education = "КПІ 121",
                     Position = "Junior",
-                    Salaty = 700,
+                    Salary = 700,
                     DepartmentId = 1
                 },
                 new Employee
@@ -45,7 +45,7 @@ namespace DataAccessLayer
                     BirthYear = 2002,
                     Education = "ЛП",
                     Position = "Middle",
-                    Salaty = 1200,
+                    Salary = 1200,
                     DepartmentId = 2,
                     SupervisorId = 1
                 },
@@ -57,7 +57,7 @@ namespace DataAccessLayer
                     BirthYear = 2002,
                     Education = "ЛНУ",
                     Position = "Middle",
-                    Salaty = 1300,
+                    Salary = 1300,
                     DepartmentId = 3,
                     SupervisorId = 1
                 },
@@ -66,8 +66,8 @@ namespace DataAccessLayer
                     Id = 4,
                     LastName = "Вовк",
                     FirstName = "Евген",
-                    Position = "Laad",
-                    Salaty = 1300,
+                    Position = "Lead",
+                    Salary = 1300,
                     DepartmentId = 1,
                     SupervisorId = 1
                 }
