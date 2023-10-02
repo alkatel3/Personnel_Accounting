@@ -15,7 +15,7 @@ namespace Personnel_Accounting.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index(uint? birthYear, string? education, decimal? salary)
+        public IActionResult Index(uint? birthYear, string? education, double? salary)
         {
             var Employee = _unitOfWork.Employees.GetAll(e => 
             e.BirthYear==(birthYear ?? e.BirthYear) &&

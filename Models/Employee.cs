@@ -24,8 +24,8 @@ namespace Models
         public string Position { get; set; } = null!;
         [Required]
         [DisplayName("Оклад")]
-        [Range(0, (double)Decimal.MaxValue)]
-        public decimal Salary { get; set; }
+        [Range(0, double.MaxValue)]
+        public double Salary { get; set; }
         [DisplayName("Підпорядкований")]
         public int? SupervisorId { get; set; }
         [ForeignKey("SupervisorId")]
