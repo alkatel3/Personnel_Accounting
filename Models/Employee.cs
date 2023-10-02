@@ -26,10 +26,11 @@ namespace Models
         [DisplayName("Оклад")]
         [Range(0, (double)Decimal.MaxValue)]
         public decimal Salary { get; set; }
+        [DisplayName("Підпорядкований")]
         public int? SupervisorId { get; set; }
         [ForeignKey("SupervisorId")]
-        [DisplayName("Підпорядкований")]
         public Employee? Supervisor { get; set; }
+        [DisplayName("Департамент")]
         public int DepartmentId { get; set; }
         [ForeignKey("DepartmentId")]
         public Department? Department { get; set; }
