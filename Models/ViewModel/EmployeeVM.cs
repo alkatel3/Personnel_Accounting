@@ -8,6 +8,6 @@ namespace Models.ViewModel
         public Employee Employee { get; set; } = null!;
         [ValidateNever]
         public IEnumerable<SelectListItem> DepartmentList { get; set; } = null!;
-        public IEnumerable<SelectListItem> EployeeList { get; set; } = null!;
+        public Dictionary<int, IEnumerable<SelectListItem>> EmployeeList { get; set; } = null!;
     }
 }

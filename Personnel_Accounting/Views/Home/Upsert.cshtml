@@ -51,18 +51,19 @@
                             <span asp-validation-for="Employee.Salary" class="text-danger"></span>
                         </div>
                         <div class="form-floating py-3 col-12">
-                            <select asp-for="Employee.DepartmentId" asp-items="@Model.DepartmentList" class="form-select border-0 shadow">
+                            <select id="departmentSelect" asp-for="Employee.DepartmentId" asp-items="@Model.DepartmentList" class="form-select border-0 shadow">
                                 <option disabled selected>--Виберіть Департамент--</option>
                             </select>
                             <label asp-for="Employee.DepartmentId" class="ms-2 text-muted"></label>
                             <span asp-validation-for="Employee.DepartmentId" class="text-danger"></span>
                         </div>
-                        <div class="form-floating py-3 col-12">
-                            <select asp-for="Employee.SupervisorId" asp-items="@Model.EployeeList" class="form-select border-0 shadow">
+                        <div class="form-floating py-3 col-12 ">
+                            <select id="supervisorSelect" asp-for="Employee.SupervisorId" class="form-select border-0 shadow">
                                 <option disabled selected>--Виберіть безпосереднього керівника--</option>
                             </select>
                             <label asp-for="Employee.SupervisorId" class="ms-2 text-muted"></label>
                         </div>
+
                         <div class="row pt-2">
                             <div class="col-6 col-md-3">
                                 @if (Model.Employee.Id != 0)
@@ -95,4 +96,28 @@
     @{
         <partial name="_ValidationScriptsPartial" />
     }
+    <script>
+        // Отримайте посилання на обидва селектори
+        const departmentSelect = document.getElementById("departmentSelect");
+        const supervisorSelect = document.getElementById("supervisorSelect");
+
+        // Отримайте словник EmployeeList з сервера та збережіть його у JavaScript-змінній
+        const employeeList = @Html.Raw(Json.Serialize(Model.EmployeeList));
+
+        // Додайте обробник подій для зміни вибору у першому селекторі
+        departmentSelect.addEventListener("change", function () {
+            const selectedDepartment = departmentSelect.value;
+            const employeesInDepartment = employeeList[selectedDepartment];
+
+            // Додайте опції для співробітників у вибраному департаменті
+            employeesInDepartment.forEach(function (employee) {
+                const option = document.createElement("option");
+                option.value = employee.value; // Можливо, вам потрібно змінити це на employee.Value, якщо це поле у ваших SelectListItem
+                option.textContent = employee.text; // Аналогічно, можливо, вам потрібно змінити це на employee.Text
+                supervisorSelect.appendChild(option);
+            });
+        });
+
+        departmentSelect.dispatchEvent(new Event('change'));
+    </script>
 }

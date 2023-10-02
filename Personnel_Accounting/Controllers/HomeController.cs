@@ -36,13 +36,19 @@ namespace Personnel_Accounting.Controllers
                     Value = d.Id.ToString()
                 }),
                 Employee = new Employee(),
-                EployeeList = _unitOfWork.Employees
-                .GetAll(e => e.Id!=id).Select(e => new SelectListItem
-                {
-                    Text = string.Join(' ', e.LastName, e.FirstName),
-                    Value = e.Id.ToString()
-                }),
+                EmployeeList = _unitOfWork.Employees
+                    .GetAll(e => e.Id != id)
+                    .GroupBy(e => e.DepartmentId)
+                    .ToDictionary(
+                        g => g.Key,
+                        g => g.Select(e => new SelectListItem
+                        {
+                            Text = $"{e.LastName} {e.FirstName}",
+                            Value = e.Id.ToString()
+                        })
+                    )
             };
+
             if (id == null || id == 0)
             {
                 //Create
