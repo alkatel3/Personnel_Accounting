@@ -4,7 +4,7 @@
     <div class="card-header bg-secondary bg-gradient m-lg-0 py-3">
         <div class="rox">
             <div class="col-12 text-center">
-                <h2 class="text-white py-2">@(Model.Employee.Id != 0 ? "Update" : "Create") Employee</h2>
+                <h2 class="text-white py-2">@(Model.Employee.Id != 0 ? "Редагування Даних" : "Створення") Працівника</h2>
             </div>
         </div>
     </div>
@@ -28,14 +28,17 @@
                         <div class="form-floating py-3 col-12">
                             <input asp-for="Employee.MiddleName" class="form-control border-0 shadow" />
                             <label asp-for="Employee.MiddleName" class="ms-2 text-muted"></label>
+                            <span asp-validation-for="Employee.MiddleName" class="text-danger"></span>
                         </div>
                         <div class="form-floating py-3 col-12">
                             <input asp-for="Employee.BirthYear" class="form-control border-0 shadow" />
                             <label asp-for="Employee.BirthYear" class="ms-2 text-muted"></label>
+                            <span asp-validation-for="Employee.BirthYear" class="text-danger"></span>
                         </div>
                         <div class="form-floating py-3 col-12">
                             <input asp-for="Employee.Education" class="form-control border-0 shadow" />
                             <label asp-for="Employee.Education" class="ms-2 text-muted"></label>
+                            <span asp-validation-for="Employee.Education" class="text-danger"></span>
                         </div>
                         <div class="form-floating py-3 col-12">
                             <input asp-for="Employee.Position" class="form-control border-0 shadow" />
@@ -49,14 +52,14 @@
                         </div>
                         <div class="form-floating py-3 col-12">
                             <select asp-for="Employee.DepartmentId" asp-items="@Model.DepartmentList" class="form-select border-0 shadow">
-                                <option disabled selected>--Select Department--</option>
+                                <option disabled selected>--Виберіть Департамент--</option>
                             </select>
                             <label asp-for="Employee.DepartmentId" class="ms-2 text-muted"></label>
                             <span asp-validation-for="Employee.DepartmentId" class="text-danger"></span>
                         </div>
                         <div class="form-floating py-3 col-12">
                             <select asp-for="Employee.SupervisorId" asp-items="@Model.EployeeList" class="form-select border-0 shadow">
-                                <option disabled selected>--Select Supervisor--</option>
+                                <option disabled selected>--Виберіть безпосереднього керівника--</option>
                             </select>
                             <label asp-for="Employee.SupervisorId" class="ms-2 text-muted"></label>
                         </div>
@@ -64,17 +67,17 @@
                             <div class="col-6 col-md-3">
                                 @if (Model.Employee.Id != 0)
                                 {
-                                    <button type="submit" class="btn btn-primary form-control">Update</button>
+                                    <button type="submit" class="btn btn-primary form-control">Редагувати</button>
                                 }
                                 else
                                 {
-                                    <button type="submit" class="btn btn-primary form-control">Create</button>
+                                    <button type="submit" class="btn btn-primary form-control">Створити</button>
                                 }
 
                             </div>
                             <div class="col-6 col-md-3">
                                 <a asp-controller="Home" asp-action="Index" class="btn btn-outline-light form-control border-dark text-muted">
-                                    Back to List
+                                    Назад
                                 </a>
                             </div>
                         </div>
@@ -89,18 +92,6 @@
 
 
 @section Scripts{
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'anchor autolink charmap codesample emoticon lists table visualblocks wordcount',
-            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent',
-            tinycomments_mode: 'embedded',
-            tinycomments_author: 'Author name',
-            mergetags_list: [
-                { value: 'First.Name', title: 'First Name' },
-            ]
-        });
-    </script>
     @{
         <partial name="_ValidationScriptsPartial" />
     }
