@@ -97,23 +97,16 @@
         <partial name="_ValidationScriptsPartial" />
     }
     <script>
-        // Отримайте посилання на обидва селектори
         const departmentSelect = document.getElementById("departmentSelect");
         const supervisorSelect = document.getElementById("supervisorSelect");
-
-        // Отримайте словник EmployeeList з сервера та збережіть його у JavaScript-змінній
         const employeeList = @Html.Raw(Json.Serialize(Model.EmployeeList));
-
-        // Додайте обробник подій для зміни вибору у першому селекторі
         departmentSelect.addEventListener("change", function () {
             const selectedDepartment = departmentSelect.value;
             const employeesInDepartment = employeeList[selectedDepartment];
-
-            // Додайте опції для співробітників у вибраному департаменті
             employeesInDepartment.forEach(function (employee) {
                 const option = document.createElement("option");
-                option.value = employee.value; // Можливо, вам потрібно змінити це на employee.Value, якщо це поле у ваших SelectListItem
-                option.textContent = employee.text; // Аналогічно, можливо, вам потрібно змінити це на employee.Text
+                option.value = employee.value;
+                option.textContent = employee.text;
                 supervisorSelect.appendChild(option);
             });
         });
